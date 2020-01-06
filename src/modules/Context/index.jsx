@@ -8,7 +8,7 @@ function Toolbar(props) {
 	return (
 		<ThemedButton onClick={props.changeTheme}>
 			Change Theme
-    </ThemedButton>
+    	</ThemedButton>
 	);
 }
 
