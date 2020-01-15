@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
-class App2 extends Component {
+export class App2 extends Component {
 	state = {
 		count: 0,
 		size: {
@@ -45,20 +45,65 @@ class App2 extends Component {
 	}
 }
 
-export default App2;
+
+export default App;
 
 function App() {
 
-    const [count, setCount] = useState(0);
+	const [count, setCount] = useState(0);
+	const [size, setSize] = useState({
+		width: document.documentElement.clientWidth,
+		height: document.documentElement.clientHeight
+	});
 
-    return (
-        <button type="button"
-            onClick={() => setCount(count => count + 2)}
-        >
-            Click {count}
+	useEffect(() => {
+		document.title = count;
+	});
+
+	useEffect(() => {
+		console.log('ct:', count);
+	}, [size, count]); // size 变化才触发，副作用
+
+	function onResize() {
+		setSize({
+			width: document.documentElement.clientWidth,
+			height: document.documentElement.clientHeight
+		});
+	}
+
+	useEffect(() => {
+		window.addEventListener('resize', onResize, false);
+
+		return () => {
+			window.removeEventListener('resize', onResize, false);
+		};
+	}, []); // 只在第一次 render 后,组件卸载前才会运行解绑函数
+
+	const onClick = () => {
+		console.log('click span');
+	};
+
+	useEffect(() => {
+		document.querySelector('#size').addEventListener('click', onClick, false);
+
+		return () => {
+			document.querySelector('#size').removeEventListener('click', onClick, false);
+		};
+	});
+
+	return (
+		<div>
+			<button type="button"
+				onClick={() => setCount(count => count + 1)}
+			>
+				Click ({count})
 
         </button>
-    )
+			{
+				count % 2
+					? <span id='size'>&nbsp;size: {size.width} * {size.height}</span>
+					: <p id="size">size: {size.width} * {size.height}</p>
+			}
+		</div>
+	)
 }
-
-// export default App;
