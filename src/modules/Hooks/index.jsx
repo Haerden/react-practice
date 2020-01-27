@@ -11,13 +11,13 @@ class App extends Component {
 		return (
 			<Router>
 				<div>
-					<Link to="/hooks/state">Use State</Link>
+					<Link to="/hooks/state">1.Use State</Link>
 					<hr />
-					<Link to="/hooks/effect">Use Effect</Link>
+					<Link to="/hooks/effect">2.Use Effect</Link>
 					<hr />
-					<Link to="/hooks/context">Context Hooks</Link>
+					<Link to="/hooks/context">3.Context Hooks</Link>
 					<hr />
-					<Link to="/hooks/memo">Use Memo Callback</Link>
+					<Link to="/hooks/memo">4.Use Memo Callback</Link>
 					<hr />
 					<Link to="/hooks/ref">Use Ref</Link>
 					<hr />
