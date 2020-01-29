@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, memo } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 
 const Counter = memo(function Counter(props) {
     console.log('Counter render');
@@ -11,7 +11,7 @@ export default function App() {
 
     const double = useMemo(() => {
         return count * 2;
-    }, [count === 4]);
+    }, [count]);
 
     // half 依赖 double
     // const half = useMemo(() => { return double / 4; }, [double]); ...

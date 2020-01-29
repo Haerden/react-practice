@@ -1,7 +1,11 @@
 body {
     background-color: #eeeeee;
+    margin-left: 20px;
 }
 a {
     text-decoration:none;
     color: black;
+}
+.sub-link {
+    margin-left: 20px;
 }

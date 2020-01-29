@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 export default function App() {
-
-    const [count, setCount] = useState(0);
-
-
-
+    const [clickCount, setClickCount] = useState(0);  
+  
+    const handleClick = useCallback(() => {
+      setClickCount(clickCount + 1);
+    }, [clickCount]);
+  
     return (
-        <div>
-            <button type="button"
-                onClick={() => setCount(count => count + 1)}
-            >
-                Click ({count})
-
-        </button>
-        </div>
+      <div>
+          <button onClick={handleClick}>Press</button>
+          <span>{clickCount}</span>
+      </div>
     )
-}
+  }
