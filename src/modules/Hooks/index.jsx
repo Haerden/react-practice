@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Link, Route } from 'react-router-dom';
-import OneState from './one';
-import TwoEffect from './two';
-import ThContext from './three';
-import Memo from './four';
-import Ref from './five';
-import Six from './six';
+import OneState from './modules/one';
+import TwoEffect from './modules/two';
+import ThContext from './modules/three';
+import Memo from './modules/four';
+import Ref from './modules/five';
+import Custom from './modules/six';
+import Ans from './modules/seven';
 
 class App extends Component {
 	render() {
@@ -23,7 +24,9 @@ class App extends Component {
 						<hr />
 						<Link to="/hooks/ref">5.Use Ref</Link>
 						<hr />
-						<Link to="/hooks/use">6.Use </Link>
+						<Link to="/hooks/custom">6.Use custom Ref</Link>
+						<hr />
+						<Link to="/hooks/ans">7.Hooks Ans</Link>
 						<hr />
 					</section>
 
@@ -32,7 +35,8 @@ class App extends Component {
 					<Route path="/hooks/context" component={ThContext}></Route>
 					<Route path="/hooks/memo" component={Memo}></Route>
 					<Route path="/hooks/ref" component={Ref}></Route>
-					<Route path="/hooks/use" component={Six}></Route>
+					<Route path="/hooks/custom" component={Custom}></Route>
+					<Route path="/hooks/ans" component={Ans}></Route>
 				</div>
 			</Router>
 		);
