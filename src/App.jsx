@@ -19,7 +19,7 @@ class App extends Component {
 					<hr />
 					<Link to="/memo">Memo</Link>
 					<hr />
-					<Link to="/hooks">Hooks</Link>
+					<Link to="/hooks">Hooks Case</Link>
 					<hr />
 					<Route path="/" exact component={Context}></Route>
 					<Route path="/context" component={Context}></Route>
